@@ -147,7 +147,7 @@ def create_watermark(root):
 # Create the main window
 root = tk.Tk()
 root.title("Goobie's Image Converter")
-root.iconbitmap(r"C://Users/krist/desktop/icon.ico")
+root.iconbitmap(r"C://Users/krist/desktop/ImageConvertApp/hotdogico.ico")
 root.geometry("400x330")
 
 # Image URL entry
