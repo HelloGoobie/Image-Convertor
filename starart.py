@@ -98,17 +98,9 @@ def convert_image_to_32x32(image_url, save_directory):
         raise Exception(f"Error converting image: {str(e)}")
 
 
-def open_save_location(save_path):
-    try:
-        os.startfile(save_path)
-    except AttributeError:
-        try:
-            subprocess.call(["open", save_path])
-        except Exception:
-            raise Exception("Could not open save location.")
 
 
-def handle_submit(image_entry, save_directory, progress_bar, submit_button, new_image_button):
+def handle_submit(image_entry, save_directory, progress_bar, submit_button):
     image_url = image_entry.get()
     if not image_url:
         messagebox.showinfo("Error", "Please enter an image URL.")
@@ -126,10 +118,7 @@ def handle_submit(image_entry, save_directory, progress_bar, submit_button, new_
         save_path = convert_image_to_32x32(image_url, save_dir)
         messagebox.showinfo("Success", "Image conversion completed successfully.")
 
-        open_button = tk.Button(root, text="Open Folder", command=lambda: open_save_location(save_dir))
-        open_button.pack(pady=10)
 
-        new_image_button.pack(pady=10)
     except Exception as e:
         messagebox.showinfo("Error", f"Image conversion failed: {str(e)}")
         print(f"Error: {str(e)}")
@@ -147,7 +136,6 @@ def create_watermark(root):
 # Create the main window
 root = tk.Tk()
 root.title("Goobie's Image Converter")
-root.iconbitmap(r"C://Users/krist/desktop/ImageConvertApp/hotdogico.ico")
 root.geometry("400x330")
 
 # Image URL entry
@@ -173,16 +161,13 @@ browse_button.pack(pady=10)
 
 # Submit button
 submit_button = tk.Button(root, text="Submit", command=lambda: handle_submit(image_entry, save_directory,
-                                                                           progress_bar, submit_button, new_image_button))
+                                                                           progress_bar, submit_button))
 submit_button.pack(pady=10)
 
 # Progress bar
 progress_bar = Progressbar(root, length=300, mode="indeterminate")
 progress_bar.pack(pady=10)
 
-# New Image button
-new_image_button = tk.Button(root, text="New Image", command=lambda: [image_entry.delete(0, tk.END), new_image_button.pack_forget()])
-create_watermark(root)
 
 # Run the main loop
 root.mainloop()
