@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <strong>A simple and user-friendly image conversion tool</strong>
+  <strong>A simple and user-friendly image conversion tool, originally created to aid in creating artwork for Starving Artists, the Roblox game. Please note, this is NOT an exploit, it's simply a tool to convert a large image to a 32x32px size and give the color codes to match, it does NOT draw the image for you in game!</strong>
 </p>
 
 <p align="center">
