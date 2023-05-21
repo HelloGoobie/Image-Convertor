@@ -21,6 +21,8 @@
 
 - Convert images to a 32x32 pixel size.
 - Convert images to a 3240x3240 pixel size image that includes the hex color of each pixel
+- Nearest Neighbor Downsampling to improve quality at smaller sizes
+- Lower Color Amount to make artwork less busy reduce color amount
 - Automatically optimize images by replacing similar colors with the most common color.
 - Specify the image URL and the save location.
 - Open the save location directly from the program.
